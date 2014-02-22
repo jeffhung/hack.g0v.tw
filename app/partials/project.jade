@@ -1,17 +1,14 @@
 .container
   .row.projects-title
     .span7
-      h1 專案列表
+      h1 開發中專案
       input.search-query(type='text',placeholder='搜尋專案（名稱、網址、需求…）',ng-model="search")
     .span5.create-project
-      h2 找不到您關心的議題？
-      a.btn.btn-success(ng-click='newProject()')
-        i.icon-plus
-        | 立刻新增專案
+ 
 
   .row
     .span8
-      article.mod-project.new(ui-if='opts.isnew',ng-include="'/partials/project.edit.html'")
+      article.mod-project.new(ng-if='opts.isnew',ng-include="'/partials/project.edit.html'")
       article.projects-loading(ng-show="projects.length == 0")
         .loading-indicator
       article.mod-project.project-not-found(ng-show="projects.length != 0 && (projects | filter:search).length === 0")
@@ -59,12 +56,12 @@
           dt.inline 專案需求
           dd.inline-last
             span.label.label-important(ng-repeat='need in project.needs') {{ need }}&nbsp;
-          dt(ui-if="project.author") 協調者
-          dd(ui-if="project.author")
+          dt(ng-if="project.author") 協調者
+          dd(ng-if="project.author")
             span.avatar-link(data-toggle='tooltip', title='{{project.author}}')
               img.avatar(ng-src='{{avatarFor(project.author)}}')
-          dt(ui-if="project.contributors") 參與者
-          dd(ui-if="project.contributors")
+          dt(ng-if="project.contributors") 參與者
+          dd(ng-if="project.contributors")
             span.avatar-link(data-toggle='tooltip', title='{{user}}', ng-repeat="user in project.contributors")
               img.avatar(ng-src='{{avatarFor(user)}}')
               | &nbsp;
@@ -111,8 +108,8 @@
                   dt
                     span.label.label-info {{project.name}}
                   dd {{project.name_zh || project.name}}&nbsp;
-        h2 歡迎跳坑
-        p 底下是一些您可以幫忙的事項，歡迎跳坑。
+        h2 想要幫忙？
+        p 底下是一些各專案的任務清單，您可以幫忙的事項，歡迎跳坑。請先申請 github 帳號，開始加入討論 :)
         .issues-label-filter
           select(data-placeholder="Filter by Labels…", multiple, ng-model="opt_labels", ng-options="label.name as label.text group by label.kind for label in labels")
           script $(".issues-label-filter select").chosen({width: "100%"});

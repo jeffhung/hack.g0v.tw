@@ -2,11 +2,15 @@ ul.nav
   li
     a(ng-href='/') 首頁
   li.dropdown-split-left
-    a(ng-href='/g0v-hackath5n') 美麗島黑客松
+    a(ng-href='/g0v-hackath7n') 自由時代黑客松
   li.dropdown-split-right.dropdown
     a.dropdown-toggle
       i.icon-caret-down
     ul.dropdown-menu.pull-right(role='menu', aria-labelledby='projects')
+      li
+        a(ng-href='/g0v-hackath6n') 勞動基準黑客松
+      li
+        a(ng-href='/g0v-hackath5n') 美麗島
       li
         a(ng-href='/g0v-hackath4n') 國民大會
       li
@@ -27,6 +31,10 @@ ul.nav
       li(role='presentation')
         a(role='menuitem', tabindex='-1',ng-href='/g0v-ly') 立法院專案
       li(role='presentation')
+        a(role='menuitem', tabindex='-1',ng-href='/3du') 萌典
+      li(role='presentation')
+        a(role='menuitem', tabindex='-1',ng-href='/don-democracy') 動民主家族
+      li(role='presentation')
         a(role='menuitem', tabindex='-1',ng-href='/g0vwelfare') 福利請聽
       li(role='presentation')
         a(role='menuitem', tabindex='-1',ng-href='/kuansim') 鄉民關心你
@@ -40,9 +48,8 @@ ul.nav
       | 專案列表
       span.label.label-important new
   li
-    a(ng-href='/g0vMOE')
+    a(ng-href='http://g0v.github.io/leve1up/')
       | 新手上路
-      span.label.label-success 教育部
   li.irc.dropdown-split-left(ng-class="{ active: $state.includes('irc') }")
     a(ng-href='/irc')
       i.icon-link(ng-class="{'irc-enabled': ircEnabled}")
@@ -56,7 +63,5 @@ ul.nav
 
 
 ul.nav.pull-right
-  li(ng-class="{ active: $state.includes('project-new') }")
-    a(ng-href="/project-new") 新增專案
   li(ng-class="{ active: $state.includes('about') }")
     a(ng-href='/about') About
